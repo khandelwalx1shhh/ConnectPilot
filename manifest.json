@@ -1,41 +1,7 @@
-{
-    "manifest_version": 3,
-    "name": "ConnectPilot – LinkedIn Auto Networking",
-    "version": "1.0.0",
-    "description": "Keyword-based LinkedIn auto networking assistant with human-like behavior simulation.",
-    "permissions": [
-        "activeTab",
-        "storage",
-        "scripting",
-        "tabs",
-        "alarms"
-    ],
-    "host_permissions": [
-        "https://www.linkedin.com/*"
-    ],
-    "background": {
-        "service_worker": "background.js",
-        "type": "module"
-    },
-    "action": {
-        "default_popup": "popup.html",
-        "default_title": "ConnectPilot"
-    },
-    "content_scripts": [
-        {
-            "matches": [
-                "https://www.linkedin.com/*"
-            ],
-            "js": [
-                "delayManager.js",
-                "scrollEngine.js",
-                "automationController.js",
-                "content.js"
-            ],
-            "run_at": "document_idle"
-        }
-    ],
-    "content_security_policy": {
-        "extension_pages": "script-src 'self'; object-src 'self'"
-    }
-}
+{\n  
+  "manifest_version": 3,\n  "name": "Your Extension Name",\n  "version": "1.0",\n  "description": "Description of your extension.",\n  "permissions": [\n    "storage"\n  ],\n  \
+  "background": {\n    "service_worker": "background.js"  // Note: module type removed \n  },\n  \
+  "content_scripts": [\n    {\n      "matches": ["<all_urls>"],\n      "js": ["content.js"]\n    }\n  ],\n  \
+  "action": {\n    "default_popup": "popup.html",\n    "default_icon": "icon.png"\n  },\n  \
+  "web_accessible_resources": [\n    {\n      "resources": ["resource.html"],\n      "matches": ["<all_urls>"]\n    }\n  ],\n  \
+  "content_security_policy": {\n    "extension_pages": "script-src 'self'; object-src 'self'" // Updated CSP directives \n  }\n}
